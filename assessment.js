@@ -7,15 +7,15 @@
 
     function removeAllChildren(element) {
         while (element.firstChild) {
-            element.removeChild(element.firstChild);
+           element.removeChild(element.firstChild);
         }
     }
     assessmentButton.onclick = () => {
         const userName = userNameInput.value;
-        if (userName.length === 0) {
+        if (userName.length === 0){
             return;
         }
-        removeAllChildren(resultDivided)
+        removeAllChildren(resultDivided) 
         const header = document.createElement('h3');
         header.innerText = '診断結果';
         resultDivided.appendChild(header);
@@ -24,16 +24,14 @@
         const result = assessment(userName);
         paragraph.innerText = result;
         resultDivided.appendChild(paragraph);
-
         removeAllChildren(tweetDivided);
         const anchor = document.createElement('a');
-        const hrefValue = 'https://twitter.com/intent/tweet?button_hashtag=%e3%81%8a%e3%81%99%e3%81%99%e3%82%81%e6%9b%b2%e8%a8%ba%e6%96%ad' + encodeURIComponent(result);
+        const hrefValue='https://twitter.com/intent/tweet?button_hashtag=おすすめの曲診断&ref_src=twsrc%5Etfw&text='+encodeURIComponent(result);
         anchor.setAttribute('href', hrefValue);
         anchor.className = 'twitter-hashtag-button';
-        anchor.innerText = 'tweet #おすすめ曲診断';
+        anchor.innerText = 'Tweet #おすすめの曲診断';
         tweetDivided.appendChild(anchor);
         twttr.widgets.load();
-
     };
 
     const answers = [
@@ -97,15 +95,15 @@
         '{userName}におすすめの曲は、アニメ「王室教師ハイネ」の『しょっぱい涙』です。',
         '{userName}におすすめの曲は、アニメ「覆面系ノイズ」の『カナリア』です。',
         '{userName}におすすめの曲は、アニメ「ナイツ＆マジック」の『Rebuilt world』です。'
-    ];
-
+    ];  
+    
     function assessment(userName) {
         let sumOfcharCode = 0;
-        for (let i = 0; i < userName.length; i++) {
+        for (let i = 0; i < userName.length; i++){
             sumOfcharCode = sumOfcharCode + userName.charCodeAt(i);
         }
 
-        const index = sumOfcharCode % answers.length;
+        const index = Math.floor(Math.random () * 59);
         let result = answers[index];
 
         result = result.replace(/{userName}/g, userName);
@@ -115,5 +113,5 @@
     console.log(assessment('太郎'))
     console.log(assessment('次郎'))
     console.log(assessment('太郎'))
-
+    
 })();

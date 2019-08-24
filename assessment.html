@@ -1,23 +1,27 @@
 <!DOCTYPE html>
 <html lang="ja">
-
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="assessment.css">
-    <title>おすすめ曲診断</title>
+    <title>おすすめの曲診断</title>
 </head>
-
 <body>
-    <h1>あなたにおすすめのアニソンは？</h1>
-    <p>ユーザー名を入力してください</p>
-    <input type="text" id="user-name" size="40" maxlength="20">
-    <button id="assessment">診断する</button>
-    <div id="result-area"></div>
-    <div id="tweet-area">
-        <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-    </div>
-    <script src="assessment.js"></script>
-
+        <div class="bg"></div>
+        <div class="bg bg2"></div>
+        <div class="bg bg3"></div>
+        <div class="content">
+                <h1>あなたにおすすめ曲は？</h1>
+                <p>診断したい名前を入れてください</p>
+                <input type="text" id="user-name" size="40" maxlength="20">
+                <button id="assessment">診断する</button>
+                <div id="result-area"></div>
+                <div id="tweet-area"></div>
+                <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+                </div>
+                <script src="assessment.js"></script>
+                
+        </div>
+    
+   
 </body>
-
 </html>
